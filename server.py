@@ -14,11 +14,6 @@ def index():
 
     return render_template('index.html', groups=groups)
 
-@app.route('/process', methods=['POST'])
-def process():
-    print 'Got Post Info'
-    return redirect('/')
-
 @app.route('/users/<id>')
 def show(id):
     query = "SELECT id, first_name, last_name, email, DATE_FORMAT(created_at, '%M %d %Y') as new_date FROM groups WHERE id = " + id
